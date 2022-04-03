@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutocompleteMenu">
+      <HintPath>D:\Desktop\Winform_lessons\Libs+dict\AutocompleteMenu.dll</HintPath>
+    </Reference>
     <Reference Include="FastColoredTextBox">
       <HintPath>D:\Desktop\Winform_lessons\Libs+dict\FastColoredTextBox.dll</HintPath>
     </Reference>

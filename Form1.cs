@@ -18,5 +18,7 @@ namespace MyNotepad__
         {
             InitializeComponent();
         }
+
+       
     }
 }

@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace MyNotepad__
@@ -19,7 +13,7 @@ namespace MyNotepad__
         Point imageHitArea = new Point(20, 4);
 
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e)
         {
             AddImage = Properties.Resources.Add;
             CloseImage = Properties.Resources.Close;
@@ -59,7 +53,7 @@ namespace MyNotepad__
             TabControl tabControl = (TabControl)sender;
             Point p = e.Location;
             int _tabWidth = 0;
-            _tabWidth = this.tabControl1.GetTabRect(tabControl.SelectedIndex).Width - (imageHitArea.X);
+            _tabWidth = this.tabControl1.GetTabRect(tabControl.SelectedIndex).Width - imageHitArea.X;
             Rectangle r = this.tabControl1.GetTabRect(tabControl.SelectedIndex);
             r.Offset(_tabWidth, imageHitArea.Y);
             r.Width = 16;
@@ -67,7 +61,7 @@ namespace MyNotepad__
             if (tabControl1.SelectedIndex == tabControl1.TabCount - 1)
             {
                 TabPage tab = new TabPage();
-                tab.Text = "";
+                tab.Text = "Page";
                 tabControl1.Controls.Add(tab);
                 tabControl1.TabPages[tabControl1.TabCount - 1].Text = "Page" + tabControl1.TabCount.ToString();
                 tabControl1.TabPages[tabControl1.TabCount - 1].Controls.Add(new RichTextBox() { BorderStyle = BorderStyle.None, Top = 26, Dock = DockStyle.Fill });
@@ -79,7 +73,7 @@ namespace MyNotepad__
             {
                 if (r.Contains(p))
                 {
-                    TabPage tabPage = (TabPage)tabControl.TabPages[tabControl.SelectedIndex];
+                    TabPage tabPage = tabControl.TabPages[tabControl.SelectedIndex];
                     tabControl.TabPages.Remove(tabPage);
                 }
             }

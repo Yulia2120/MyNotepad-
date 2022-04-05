@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.mFile = new System.Windows.Forms.ToolStripMenuItem();
             this.mFileNew = new System.Windows.Forms.ToolStripMenuItem();
             this.mFileOpen = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,24 +42,24 @@
             this.mFileExit = new System.Windows.Forms.ToolStripMenuItem();
             this.mEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.mEditCancel = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.mEditCut = new System.Windows.Forms.ToolStripMenuItem();
             this.mEditCopy = new System.Windows.Forms.ToolStripMenuItem();
             this.mEditPaste = new System.Windows.Forms.ToolStripMenuItem();
             this.mEditDel = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.mEditFind = new System.Windows.Forms.ToolStripMenuItem();
-            this.mFormat = new System.Windows.Forms.ToolStripMenuItem();
-            this.mRun = new System.Windows.Forms.ToolStripMenuItem();
-            this.mView = new System.Windows.Forms.ToolStripMenuItem();
-            this.mHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.mEditGo = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.mEditGiveAll = new System.Windows.Forms.ToolStripMenuItem();
             this.mEditTime = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.mFormat = new System.Windows.Forms.ToolStripMenuItem();
             this.mFormatTransfer = new System.Windows.Forms.ToolStripMenuItem();
             this.mFormatFont = new System.Windows.Forms.ToolStripMenuItem();
+            this.mRun = new System.Windows.Forms.ToolStripMenuItem();
+            this.mView = new System.Windows.Forms.ToolStripMenuItem();
             this.mViewStatusStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.mHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.mHelpAboutProgram = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.statusLab1 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -81,25 +81,28 @@
             this.вставкаToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.справкаToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.menuStrip1.SuspendLayout();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
+            this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // menuStrip
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mFile,
             this.mEdit,
             this.mFormat,
             this.mRun,
             this.mView,
             this.mHelp});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(747, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip";
+            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Size = new System.Drawing.Size(747, 24);
+            this.menuStrip.TabIndex = 0;
+            this.menuStrip.Text = "menuStrip";
             // 
             // mFile
             // 
@@ -121,21 +124,21 @@
             // 
             this.mFileNew.Name = "mFileNew";
             this.mFileNew.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.mFileNew.Size = new System.Drawing.Size(180, 22);
+            this.mFileNew.Size = new System.Drawing.Size(177, 22);
             this.mFileNew.Text = "New";
             // 
             // mFileOpen
             // 
             this.mFileOpen.Name = "mFileOpen";
             this.mFileOpen.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.mFileOpen.Size = new System.Drawing.Size(180, 22);
+            this.mFileOpen.Size = new System.Drawing.Size(177, 22);
             this.mFileOpen.Text = "Open";
             // 
             // mFileSave
             // 
             this.mFileSave.Name = "mFileSave";
             this.mFileSave.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.mFileSave.Size = new System.Drawing.Size(180, 22);
+            this.mFileSave.Size = new System.Drawing.Size(177, 22);
             this.mFileSave.Text = "Save";
             // 
             // mfileSaveAs
@@ -143,37 +146,37 @@
             this.mfileSaveAs.Name = "mfileSaveAs";
             this.mfileSaveAs.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
             | System.Windows.Forms.Keys.S)));
-            this.mfileSaveAs.Size = new System.Drawing.Size(180, 22);
+            this.mfileSaveAs.Size = new System.Drawing.Size(177, 22);
             this.mfileSaveAs.Text = "Save As";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(174, 6);
             // 
             // mFilePageParam
             // 
             this.mFilePageParam.Name = "mFilePageParam";
-            this.mFilePageParam.Size = new System.Drawing.Size(180, 22);
+            this.mFilePageParam.Size = new System.Drawing.Size(177, 22);
             this.mFilePageParam.Text = "Page Setup";
             // 
             // mFilePrint
             // 
             this.mFilePrint.Name = "mFilePrint";
             this.mFilePrint.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this.mFilePrint.Size = new System.Drawing.Size(180, 22);
+            this.mFilePrint.Size = new System.Drawing.Size(177, 22);
             this.mFilePrint.Text = "Print";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(174, 6);
             // 
             // mFileExit
             // 
             this.mFileExit.Name = "mFileExit";
             this.mFileExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.mFileExit.Size = new System.Drawing.Size(180, 22);
+            this.mFileExit.Size = new System.Drawing.Size(177, 22);
             this.mFileExit.Text = "Exit";
             // 
             // mEdit
@@ -201,6 +204,11 @@
             this.mEditCancel.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
             this.mEditCancel.Size = new System.Drawing.Size(204, 22);
             this.mEditCancel.Text = "Cancel";
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(201, 6);
             // 
             // mEditCut
             // 
@@ -230,6 +238,11 @@
             this.mEditDel.Size = new System.Drawing.Size(204, 22);
             this.mEditDel.Text = "Delete";
             // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(201, 6);
+            // 
             // mEditFind
             // 
             this.mEditFind.Name = "mEditFind";
@@ -237,43 +250,17 @@
             this.mEditFind.Size = new System.Drawing.Size(204, 22);
             this.mEditFind.Text = "Find and Replace";
             // 
-            // mFormat
-            // 
-            this.mFormat.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mFormatTransfer,
-            this.mFormatFont});
-            this.mFormat.Name = "mFormat";
-            this.mFormat.Size = new System.Drawing.Size(57, 20);
-            this.mFormat.Text = "Format";
-            // 
-            // mRun
-            // 
-            this.mRun.Name = "mRun";
-            this.mRun.Size = new System.Drawing.Size(40, 20);
-            this.mRun.Text = "Run";
-            // 
-            // mView
-            // 
-            this.mView.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mViewStatusStrip});
-            this.mView.Name = "mView";
-            this.mView.Size = new System.Drawing.Size(44, 20);
-            this.mView.Text = "View";
-            // 
-            // mHelp
-            // 
-            this.mHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mHelpAboutProgram});
-            this.mHelp.Name = "mHelp";
-            this.mHelp.Size = new System.Drawing.Size(44, 20);
-            this.mHelp.Text = "Help";
-            // 
             // mEditGo
             // 
             this.mEditGo.Name = "mEditGo";
             this.mEditGo.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G)));
             this.mEditGo.Size = new System.Drawing.Size(204, 22);
             this.mEditGo.Text = "Go";
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(201, 6);
             // 
             // mEditGiveAll
             // 
@@ -289,33 +276,41 @@
             this.mEditTime.Size = new System.Drawing.Size(204, 22);
             this.mEditTime.Text = "Date and Time";
             // 
-            // toolStripSeparator3
+            // mFormat
             // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(201, 6);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(201, 6);
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(201, 6);
+            this.mFormat.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mFormatTransfer,
+            this.mFormatFont});
+            this.mFormat.Name = "mFormat";
+            this.mFormat.Size = new System.Drawing.Size(57, 20);
+            this.mFormat.Text = "Format";
             // 
             // mFormatTransfer
             // 
             this.mFormatTransfer.CheckOnClick = true;
             this.mFormatTransfer.Name = "mFormatTransfer";
-            this.mFormatTransfer.Size = new System.Drawing.Size(180, 22);
+            this.mFormatTransfer.Size = new System.Drawing.Size(129, 22);
             this.mFormatTransfer.Text = "Wordwrap";
             // 
             // mFormatFont
             // 
             this.mFormatFont.Name = "mFormatFont";
-            this.mFormatFont.Size = new System.Drawing.Size(180, 22);
+            this.mFormatFont.Size = new System.Drawing.Size(129, 22);
             this.mFormatFont.Text = "Font";
+            // 
+            // mRun
+            // 
+            this.mRun.Name = "mRun";
+            this.mRun.Size = new System.Drawing.Size(40, 20);
+            this.mRun.Text = "Run";
+            // 
+            // mView
+            // 
+            this.mView.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mViewStatusStrip});
+            this.mView.Name = "mView";
+            this.mView.Size = new System.Drawing.Size(44, 20);
+            this.mView.Text = "View";
             // 
             // mViewStatusStrip
             // 
@@ -323,13 +318,21 @@
             this.mViewStatusStrip.CheckOnClick = true;
             this.mViewStatusStrip.CheckState = System.Windows.Forms.CheckState.Checked;
             this.mViewStatusStrip.Name = "mViewStatusStrip";
-            this.mViewStatusStrip.Size = new System.Drawing.Size(180, 22);
+            this.mViewStatusStrip.Size = new System.Drawing.Size(133, 22);
             this.mViewStatusStrip.Text = "Status Strip";
+            // 
+            // mHelp
+            // 
+            this.mHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mHelpAboutProgram});
+            this.mHelp.Name = "mHelp";
+            this.mHelp.Size = new System.Drawing.Size(44, 20);
+            this.mHelp.Text = "Help";
             // 
             // mHelpAboutProgram
             // 
             this.mHelpAboutProgram.Name = "mHelpAboutProgram";
-            this.mHelpAboutProgram.Size = new System.Drawing.Size(180, 22);
+            this.mHelpAboutProgram.Size = new System.Drawing.Size(156, 22);
             this.mHelpAboutProgram.Text = "About Program";
             // 
             // statusStrip
@@ -498,25 +501,46 @@
             this.справкаToolStripButton.Size = new System.Drawing.Size(23, 22);
             this.справкаToolStripButton.Text = "Спр&авка";
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tabControl1.Location = new System.Drawing.Point(0, 52);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(747, 395);
+            this.tabControl1.TabIndex = 3;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(739, 369);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(747, 469);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.statusStrip);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.menuStrip);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.MainMenuStrip = this.menuStrip1;
+            this.MainMenuStrip = this.menuStrip;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MyNotepad++";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.menuStrip.ResumeLayout(false);
+            this.menuStrip.PerformLayout();
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -524,7 +548,7 @@
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem mFile;
         private System.Windows.Forms.ToolStripMenuItem mFileNew;
         private System.Windows.Forms.ToolStripMenuItem mFileOpen;
@@ -576,6 +600,8 @@
         private System.Windows.Forms.ToolStripButton вставкаToolStripButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripButton справкаToolStripButton;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
     }
 }
 

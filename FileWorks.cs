@@ -18,5 +18,25 @@ namespace MyNotepad__
             tbChange = false;
             MainForm.ActiveForm.Text = newDocName + " — " + programmName;
         }
+        public static void OpenFile(ref TextBox notebox, ref bool tbChange, ref string docPath) // Метод "Открыть документ"
+        {
+            string programmName = Properties.Settings.Default.programmName;
+            OpenFileDialog openDocument = new OpenFileDialog();
+            openDocument.Title = "Открыть текстовый документ";
+            openDocument.Filter = "Текстовые файлы (*.txt) |*.txt| Все файлы (*.*)|*.*";
+            if (openDocument.ShowDialog() == DialogResult.OK)
+            {
+                FileStream file = new FileStream(openDocument.FileName, FileMode.Open, FileAccess.Read);
+                StreamReader reader = new StreamReader(file, Encoding.Default);
+                notebox.Text = reader.ReadToEnd();
+                reader.Close();
+                docPath = openDocument.FileName;
+                tbChange = false;
+                MainForm.ActiveForm.Text = openDocument.SafeFileName + " — " + programmName;
+            }
+        }
+
+
+
     }
 }

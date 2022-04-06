@@ -59,6 +59,7 @@
     <Compile Include="AboutForm.Designer.cs">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FileWorks.cs" />
     <Compile Include="GoToForm.cs">
       <SubType>Form</SubType>
     </Compile>

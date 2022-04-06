@@ -79,6 +79,7 @@ namespace MyNotepad__
             }
         }
 
+      
 
         public MainForm()
         {

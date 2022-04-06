@@ -11,7 +11,11 @@ namespace MyNotepad__
         Image CloseImage, AddImage;
         Point _imageLocation = new Point(20, 4);
         Point imageHitArea = new Point(20, 4);
+        TextBox notebox = new TextBox();
+        bool tbChange = false;
+        string docPath = "";
 
+     
 
         public void MainForm_Load(object sender, EventArgs e)
         {
@@ -19,7 +23,21 @@ namespace MyNotepad__
             CloseImage = Properties.Resources.Close;
             tabControl1.Padding = new Point(20, 4);
             tabControl1.TabPages[tabControl1.TabCount - 1].Text = "Page";
-            tabControl1.TabPages[tabControl1.TabCount - 1].Controls.Add(new TextBox() { BorderStyle = BorderStyle.None, Top = 26, Dock = DockStyle.Fill, Multiline = true, ScrollBars = ScrollBars.Both  });
+            tabControl1.TabPages[tabControl1.TabCount - 1].Controls.Add(new TextBox() { BorderStyle = BorderStyle.None, Top = 26,
+            Dock = DockStyle.Fill, Multiline = true, ScrollBars = ScrollBars.Both});
+
+            this.Width = Properties.Settings.Default.formWidth;
+            this.Height = Properties.Settings.Default.formHeight;
+            notebox.Font = Properties.Settings.Default.textFont;
+            if (Properties.Settings.Default.statusStripVisible == true)
+            { mViewStatusStrip.CheckState = CheckState.Checked; }
+            else
+            { mViewStatusStrip.CheckState = CheckState.Unchecked; }
+            if (Properties.Settings.Default.textTransfer == true)
+            { mFormatTransfer.CheckState = CheckState.Checked; }
+            else
+            { mFormatTransfer.CheckState = CheckState.Unchecked; }
+
 
 
         }
@@ -79,7 +97,17 @@ namespace MyNotepad__
             }
         }
 
-      
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+            Properties.Settings.Default.formWidth = this.Width;
+            Properties.Settings.Default.formHeight = this.Height;
+            Properties.Settings.Default.textTransfer = notebox.WordWrap;
+            Properties.Settings.Default.textFont = notebox.Font;
+            Properties.Settings.Default.statusStripVisible = statusStrip.Visible;
+            Properties.Settings.Default.Save();
+
+        }
 
         public MainForm()
         {

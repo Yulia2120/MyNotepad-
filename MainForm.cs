@@ -13,18 +13,18 @@ namespace MyNotepad__
         Point imageHitArea = new Point(20, 4);
 
 
-        private void MainForm_Load(object sender, EventArgs e)
+        public void MainForm_Load(object sender, EventArgs e)
         {
             AddImage = Properties.Resources.Add;
             CloseImage = Properties.Resources.Close;
             tabControl1.Padding = new Point(20, 4);
             tabControl1.TabPages[tabControl1.TabCount - 1].Text = "Page";
-            tabControl1.TabPages[tabControl1.TabCount - 1].Controls.Add(new RichTextBox() { BorderStyle = BorderStyle.None, Top = 26, Dock = DockStyle.Fill });
+            tabControl1.TabPages[tabControl1.TabCount - 1].Controls.Add(new TextBox() { BorderStyle = BorderStyle.None, Top = 26, Dock = DockStyle.Fill, Multiline = true, ScrollBars = ScrollBars.Both  });
 
 
         }
 
-        private void tabControl1_DrawItem(object sender, DrawItemEventArgs e)
+        public void tabControl1_DrawItem(object sender, DrawItemEventArgs e)
         {
             Image img;
             if (e.Index == tabControl1.TabCount - 1)
@@ -48,7 +48,7 @@ namespace MyNotepad__
                 _imageLocation.Y));
         }
 
-        private void tabControl1_MouseClick(object sender, MouseEventArgs e)
+        public void tabControl1_MouseClick(object sender, MouseEventArgs e)
         {
             TabControl tabControl = (TabControl)sender;
             Point p = e.Location;
@@ -64,7 +64,7 @@ namespace MyNotepad__
                 tab.Text = "Page";
                 tabControl1.Controls.Add(tab);
                 tabControl1.TabPages[tabControl1.TabCount - 1].Text = "Page" + tabControl1.TabCount.ToString();
-                tabControl1.TabPages[tabControl1.TabCount - 1].Controls.Add(new RichTextBox() { BorderStyle = BorderStyle.None, Top = 26, Dock = DockStyle.Fill });
+                tabControl1.TabPages[tabControl1.TabCount - 1].Controls.Add(new TextBox() { BorderStyle = BorderStyle.None, Top = 26, Dock = DockStyle.Fill, Multiline = true, ScrollBars = ScrollBars.Both });
 
 
 

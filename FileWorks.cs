@@ -36,6 +36,15 @@ namespace MyNotepad__
             }
         }
 
+        public static void SaveFile(ref TextBox notebox, ref bool tbChange, ref string docPath) // Метод "Сохранить документ"
+        {
+            FileStream file = new FileStream(docPath, FileMode.Create, FileAccess.Write);
+            StreamWriter writer = new StreamWriter(file, Encoding.Default);
+            writer.Write(notebox.Text);
+            writer.Close();
+            tbChange = false;
+        }
+
 
 
     }

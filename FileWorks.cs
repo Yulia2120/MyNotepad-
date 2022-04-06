@@ -45,7 +45,31 @@ namespace MyNotepad__
             tbChange = false;
         }
 
+        public static void SaveAsFile(ref TextBox notebox, ref bool tbChange, ref string docPath) // Метод "Сохранить документ как..."
+        {
+            string programmName = Properties.Settings.Default.programmName;
+            SaveFileDialog saveAsDocument = new SaveFileDialog();
+            saveAsDocument.Title = "Сохранить документ как...";
+            saveAsDocument.FileName = "Текстовый документ";
+            saveAsDocument.Filter = "Текстовые файлы (*.txt) |*.txt| Все файлы (*.*)|*.*";
 
+            if (saveAsDocument.ShowDialog() == DialogResult.OK) 
+            {
+                //Создаем файл по пути, выбранному в окне сохранения
+                FileStream file = new FileStream(saveAsDocument.FileName, FileMode.Create, FileAccess.Write);
+                StreamWriter writer = new StreamWriter(file, Encoding.Default);
+                writer.Write(notebox.Text); //записываем содержимое в файл
+                writer.Close(); //закрываем поток
+                tbChange = false;
+                docPath = saveAsDocument.FileName;
+                MainForm.ActiveForm.Text = Path.GetFileName(saveAsDocument.FileName) + " — " + programmName;
+            }
+            else
+            {
+                tbChange = true;
+                return;
+            }
+        }
 
     }
 }

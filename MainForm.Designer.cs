@@ -71,7 +71,7 @@
             this.statusLab4 = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusCharCount = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
-            this.создатьToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.newToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.открытьToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.сохранитьToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.печатьToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -421,7 +421,7 @@
             // 
             this.toolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.создатьToolStripButton,
+            this.newToolStripButton,
             this.открытьToolStripButton,
             this.сохранитьToolStripButton,
             this.печатьToolStripButton,
@@ -437,14 +437,15 @@
             this.toolStrip.TabIndex = 2;
             this.toolStrip.Text = "toolStrip";
             // 
-            // создатьToolStripButton
+            // newToolStripButton
             // 
-            this.создатьToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.создатьToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("создатьToolStripButton.Image")));
-            this.создатьToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.создатьToolStripButton.Name = "создатьToolStripButton";
-            this.создатьToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.создатьToolStripButton.Text = "&Создать";
+            this.newToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.newToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("newToolStripButton.Image")));
+            this.newToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.newToolStripButton.Name = "newToolStripButton";
+            this.newToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.newToolStripButton.Text = "&Создать";
+            this.newToolStripButton.Click += new System.EventHandler(this.newToolStripButton_Click);
             // 
             // открытьToolStripButton
             // 
@@ -610,7 +611,7 @@
         private System.Windows.Forms.ToolStripStatusLabel statusLab4;
         private System.Windows.Forms.ToolStripStatusLabel statusCharCount;
         private System.Windows.Forms.ToolStrip toolStrip;
-        private System.Windows.Forms.ToolStripButton создатьToolStripButton;
+        private System.Windows.Forms.ToolStripButton newToolStripButton;
         private System.Windows.Forms.ToolStripButton открытьToolStripButton;
         private System.Windows.Forms.ToolStripButton сохранитьToolStripButton;
         private System.Windows.Forms.ToolStripButton печатьToolStripButton;

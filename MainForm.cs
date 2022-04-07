@@ -337,6 +337,38 @@ namespace MyNotepad__
             gotoform.ShowDialog();
         }
 
+        private void newToolStripButton_Click(object sender, EventArgs e)
+        {
+            CreatePages();
+            if (tbChange == true)
+            {
+                DialogResult message = MessageBox.Show("Сохранить текущий документ перед созданием нового?", "Создание документа", MessageBoxButtons.YesNoCancel);
+                if (message == DialogResult.Yes)
+                {
+
+
+                    if (docPath != "")
+                    {
+                        FileWork.SaveFile(ref notebox, ref tbChange, ref docPath);
+                        FileWork.CreateFile(ref notebox, ref tbChange, ref docPath);
+                    }
+                    else if (docPath == "")
+                    {
+                        FileWork.SaveAsFile(ref notebox, ref tbChange, ref docPath);
+                        FileWork.CreateFile(ref notebox, ref tbChange, ref docPath);
+                    }
+                }
+                else if (message == DialogResult.No)
+                {
+                    FileWork.CreateFile(ref notebox, ref tbChange, ref docPath);
+                }
+            }
+            else
+            {
+                FileWork.CreateFile(ref notebox, ref tbChange, ref docPath);
+            }
+        }
+
         public MainForm()
         {
             InitializeComponent();

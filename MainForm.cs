@@ -195,6 +195,34 @@ namespace MyNotepad__
             FileWork.SaveAsFile(ref notebox, ref tbChange, ref docPath);
         }
 
+        private void mFilePageParam_Click(object sender, EventArgs e) // параметры страницы печати
+        {
+            if (pageSetupDialog.ShowDialog() == DialogResult.OK)
+            {
+                printDocument.DefaultPageSettings = pageSetupDialog.PageSettings;
+            }
+        }
+
+        private void mFilePrint_Click(object sender, EventArgs e) // печать документа
+        {
+            if (printDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    printDocument.Print();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Ошибка параметров печати.", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
+
+        private void mFileExit_Click(object sender, EventArgs e) // выход из программы
+        {
+            Application.Exit();
+        }
+
         public MainForm()
         {
             InitializeComponent();

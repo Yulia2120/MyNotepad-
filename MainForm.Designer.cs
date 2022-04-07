@@ -164,6 +164,7 @@
             this.mFilePageParam.Name = "mFilePageParam";
             this.mFilePageParam.Size = new System.Drawing.Size(180, 22);
             this.mFilePageParam.Text = "Page Setup";
+            this.mFilePageParam.Click += new System.EventHandler(this.mFilePageParam_Click);
             // 
             // mFilePrint
             // 
@@ -171,6 +172,7 @@
             this.mFilePrint.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
             this.mFilePrint.Size = new System.Drawing.Size(180, 22);
             this.mFilePrint.Text = "Print";
+            this.mFilePrint.Click += new System.EventHandler(this.mFilePrint_Click);
             // 
             // toolStripSeparator1
             // 
@@ -183,6 +185,7 @@
             this.mFileExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
             this.mFileExit.Size = new System.Drawing.Size(180, 22);
             this.mFileExit.Text = "Exit";
+            this.mFileExit.Click += new System.EventHandler(this.mFileExit_Click);
             // 
             // mEdit
             // 

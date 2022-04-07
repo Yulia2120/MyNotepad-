@@ -30,12 +30,9 @@ namespace MyNotepad__
             { mFormatTransfer.CheckState = CheckState.Checked; }
             else
             { mFormatTransfer.CheckState = CheckState.Unchecked; }
-
-
-
         }
 
-        public void tabControl1_DrawItem(object sender, DrawItemEventArgs e)
+        public void tabControl1_DrawItem(object sender, DrawItemEventArgs e) // создаем пользовательский TabPage
         {
             AddImage = Properties.Resources.Add;
             CloseImage = Properties.Resources.Close;
@@ -61,7 +58,7 @@ namespace MyNotepad__
                 _imageLocation.Y));
         }
 
-        public void tabControl1_MouseClick(object sender, MouseEventArgs e)
+        public void tabControl1_MouseClick(object sender, MouseEventArgs e) // добавляем вкладки по клику мыши
         {
             TabControl tabControl = (TabControl)sender;
             Point p = e.Location;
@@ -104,7 +101,7 @@ namespace MyNotepad__
 
         }
 
-        private void mFileNew_Click(object sender, EventArgs e)
+        private void mFileNew_Click(object sender, EventArgs e)   // создать документ
         {
             if (tabControl1.SelectedIndex == tabControl1.TabCount - 1)
             {
@@ -112,9 +109,8 @@ namespace MyNotepad__
                 tab.Text = "Page";
                 tabControl1.Controls.Add(tab);
                 tabControl1.TabPages[tabControl1.TabCount - 1].Text = "Page" + tabControl1.TabCount.ToString();
-                tabControl1.TabPages[tabControl1.TabCount - 1].Controls.Add(new TextBox() { BorderStyle = BorderStyle.None, Top = 26, Dock = DockStyle.Fill, Multiline = true, ScrollBars = ScrollBars.Both });
-
-
+                tabControl1.TabPages[tabControl1.TabCount - 1].Controls.Add(new TextBox() {
+                BorderStyle = BorderStyle.None, Top = 26, Dock = DockStyle.Fill, Multiline = true, ScrollBars = ScrollBars.Both });
 
             }
 
@@ -149,7 +145,7 @@ namespace MyNotepad__
 
        
 
-        private void mFileOpen_Click(object sender, EventArgs e)
+        private void mFileOpen_Click(object sender, EventArgs e) // открыть документ
         {
             if (tbChange == true)
             {
@@ -182,7 +178,22 @@ namespace MyNotepad__
             }
         }
 
-       
+        private void mFileSave_Click(object sender, EventArgs e) // сохранить документ
+        {
+            if (docPath != "")
+            {
+                FileWork.SaveFile(ref notebox, ref tbChange, ref docPath);
+            }
+            else
+            {
+                FileWork.SaveAsFile(ref notebox, ref tbChange, ref docPath);
+            }
+        }
+
+        private void mfileSaveAs_Click(object sender, EventArgs e) // сохранить документ как...
+        {
+            FileWork.SaveAsFile(ref notebox, ref tbChange, ref docPath);
+        }
 
         public MainForm()
         {

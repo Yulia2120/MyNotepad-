@@ -125,7 +125,7 @@
             // 
             this.mFileNew.Name = "mFileNew";
             this.mFileNew.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.mFileNew.Size = new System.Drawing.Size(177, 22);
+            this.mFileNew.Size = new System.Drawing.Size(180, 22);
             this.mFileNew.Text = "New";
             this.mFileNew.Click += new System.EventHandler(this.mFileNew_Click);
             // 
@@ -133,7 +133,7 @@
             // 
             this.mFileOpen.Name = "mFileOpen";
             this.mFileOpen.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.mFileOpen.Size = new System.Drawing.Size(177, 22);
+            this.mFileOpen.Size = new System.Drawing.Size(180, 22);
             this.mFileOpen.Text = "Open";
             this.mFileOpen.Click += new System.EventHandler(this.mFileOpen_Click);
             // 
@@ -141,45 +141,47 @@
             // 
             this.mFileSave.Name = "mFileSave";
             this.mFileSave.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.mFileSave.Size = new System.Drawing.Size(177, 22);
+            this.mFileSave.Size = new System.Drawing.Size(180, 22);
             this.mFileSave.Text = "Save";
+            this.mFileSave.Click += new System.EventHandler(this.mFileSave_Click);
             // 
             // mfileSaveAs
             // 
             this.mfileSaveAs.Name = "mfileSaveAs";
             this.mfileSaveAs.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
             | System.Windows.Forms.Keys.S)));
-            this.mfileSaveAs.Size = new System.Drawing.Size(177, 22);
+            this.mfileSaveAs.Size = new System.Drawing.Size(180, 22);
             this.mfileSaveAs.Text = "Save As";
+            this.mfileSaveAs.Click += new System.EventHandler(this.mfileSaveAs_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(174, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
             // 
             // mFilePageParam
             // 
             this.mFilePageParam.Name = "mFilePageParam";
-            this.mFilePageParam.Size = new System.Drawing.Size(177, 22);
+            this.mFilePageParam.Size = new System.Drawing.Size(180, 22);
             this.mFilePageParam.Text = "Page Setup";
             // 
             // mFilePrint
             // 
             this.mFilePrint.Name = "mFilePrint";
             this.mFilePrint.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this.mFilePrint.Size = new System.Drawing.Size(177, 22);
+            this.mFilePrint.Size = new System.Drawing.Size(180, 22);
             this.mFilePrint.Text = "Print";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(174, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // mFileExit
             // 
             this.mFileExit.Name = "mFileExit";
             this.mFileExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.mFileExit.Size = new System.Drawing.Size(177, 22);
+            this.mFileExit.Size = new System.Drawing.Size(180, 22);
             this.mFileExit.Text = "Exit";
             // 
             // mEdit

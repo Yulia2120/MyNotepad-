@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Drawing;
+using System.IO;
+using System.Text;
 using System.Windows.Forms;
 
 namespace MyNotepad__
@@ -109,6 +111,28 @@ namespace MyNotepad__
             Properties.Settings.Default.textFont = notebox.Font;
             Properties.Settings.Default.statusStripVisible = statusStrip.Visible;
             Properties.Settings.Default.Save();
+
+            if (tbChange == true)
+            {
+                DialogResult message = MessageBox.Show("Сохранить текущий документ перед выходом?", "Выход из программы", MessageBoxButtons.YesNoCancel);
+                if (message == DialogResult.Yes)
+                {
+                    if (docPath != "")
+                    {
+                        FileWork.SaveFile(ref notebox, ref tbChange, ref docPath);
+                        Application.Exit();
+                    }
+                    else if (docPath == "")
+                    {
+                        FileWork.SaveAsFile(ref notebox, ref tbChange, ref docPath);
+                        Application.Exit();
+                    }
+                }
+                else if (message == DialogResult.Cancel)
+                {
+                    e.Cancel = true;
+                }
+            }
 
         }
 
@@ -226,11 +250,41 @@ namespace MyNotepad__
         {
             Application.Exit();
         }
+        public MainForm(string fileName) // Открытие программы документом
+        {
+            InitializeComponent();
+            if (!string.IsNullOrEmpty(fileName) && File.Exists(fileName))
+            {
+                try
+                {
+                    string programmName = Properties.Settings.Default.programmName;
+                    FileStream file = new FileStream(fileName, FileMode.Open, FileAccess.Read);
+                    StreamReader reader = new StreamReader(file, Encoding.Default);
+                    notebox.Text = reader.ReadToEnd();
+                    reader.Close();
+                    docPath = fileName;
+                    tbChange = false;
+                    this.Text = Path.GetFileName(fileName) + " — " + programmName;
+                    notebox.Select(0, 0);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        private void mEditCancel_Click(object sender, EventArgs e)
+        {
+            notebox.Undo();
+        }
 
         public MainForm()
         {
             InitializeComponent();
+            this.Text = Properties.Settings.Default.newDocName + " - " + Properties.Settings.Default.programmName;
 
         }
+
     }
 }

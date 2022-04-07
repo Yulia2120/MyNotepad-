@@ -435,11 +435,31 @@ namespace MyNotepad__
             fastColoredTextBox1.Enabled = true;
         }
 
+        private void mRunCSharp_Click(object sender, EventArgs e)
+        {
+            fastColoredTextBox1.Language = FastColoredTextBoxNS.Language.CSharp;
+        }
+
+        private void mRunHTML_Click(object sender, EventArgs e)
+        {
+            fastColoredTextBox1.Language = FastColoredTextBoxNS.Language.HTML;
+        }
+
+        private void mRunPHP_Click(object sender, EventArgs e)
+        {
+            fastColoredTextBox1.Language = FastColoredTextBoxNS.Language.PHP;
+        }
+
+        private void fastColoredTextBox1_TextChanged(object sender, FastColoredTextBoxNS.TextChangedEventArgs e)
+        {
+
+        }
+
         public MainForm()
         {
             InitializeComponent();
             this.Text = Properties.Settings.Default.newDocName + " - " + Properties.Settings.Default.programmName;
-
+            autocompleteMenu.Items = File.ReadAllLines("cs-reserv-list.dicr");
         }
 
     }

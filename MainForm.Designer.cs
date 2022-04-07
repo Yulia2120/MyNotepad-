@@ -88,6 +88,10 @@
             this.pageSetupDialog = new System.Windows.Forms.PageSetupDialog();
             this.fontDialog = new System.Windows.Forms.FontDialog();
             this.fastColoredTextBox1 = new FastColoredTextBoxNS.FastColoredTextBox();
+            this.mRunCSharp = new System.Windows.Forms.ToolStripMenuItem();
+            this.mRunHTML = new System.Windows.Forms.ToolStripMenuItem();
+            this.mRunPHP = new System.Windows.Forms.ToolStripMenuItem();
+            this.autocompleteMenu = new AutocompleteMenuNS.AutocompleteMenu();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
@@ -96,6 +100,7 @@
             // 
             // menuStrip
             // 
+            this.menuStrip.BackColor = System.Drawing.Color.Aqua;
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mFile,
             this.mEdit,
@@ -323,6 +328,10 @@
             // 
             // mRun
             // 
+            this.mRun.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mRunCSharp,
+            this.mRunHTML,
+            this.mRunPHP});
             this.mRun.Name = "mRun";
             this.mRun.Size = new System.Drawing.Size(40, 20);
             this.mRun.Text = "Run";
@@ -550,6 +559,7 @@
             // 
             // fastColoredTextBox1
             // 
+            this.fastColoredTextBox1.AutoCompleteBrackets = true;
             this.fastColoredTextBox1.AutoCompleteBracketsList = new char[] {
         '(',
         ')',
@@ -561,6 +571,7 @@
         '\"',
         '\'',
         '\''};
+            this.autocompleteMenu.SetAutocompleteMenu(this.fastColoredTextBox1, this.autocompleteMenu);
             this.fastColoredTextBox1.AutoIndentCharsPatterns = "^\\s*[\\w\\.]+(\\s\\w+)?\\s*(?<range>=)\\s*(?<range>[^;=]+);\r\n^\\s*(case|default)\\s*[^:]*" +
     "(?<range>:)\\s*(?<range>[^;]+);";
             this.fastColoredTextBox1.AutoScrollMinSize = new System.Drawing.Size(27, 14);
@@ -573,7 +584,6 @@
             this.fastColoredTextBox1.Enabled = false;
             this.fastColoredTextBox1.Font = new System.Drawing.Font("Courier New", 9.75F);
             this.fastColoredTextBox1.IsReplaceMode = false;
-            this.fastColoredTextBox1.Language = FastColoredTextBoxNS.Language.CSharp;
             this.fastColoredTextBox1.LineNumberColor = System.Drawing.Color.DodgerBlue;
             this.fastColoredTextBox1.Location = new System.Drawing.Point(0, 49);
             this.fastColoredTextBox1.Name = "fastColoredTextBox1";
@@ -583,6 +593,37 @@
             this.fastColoredTextBox1.Size = new System.Drawing.Size(744, 427);
             this.fastColoredTextBox1.TabIndex = 3;
             this.fastColoredTextBox1.Zoom = 100;
+            this.fastColoredTextBox1.TextChanged += new System.EventHandler<FastColoredTextBoxNS.TextChangedEventArgs>(this.fastColoredTextBox1_TextChanged);
+            // 
+            // mRunCSharp
+            // 
+            this.mRunCSharp.CheckOnClick = true;
+            this.mRunCSharp.Name = "mRunCSharp";
+            this.mRunCSharp.Size = new System.Drawing.Size(180, 22);
+            this.mRunCSharp.Text = "CSharp";
+            this.mRunCSharp.Click += new System.EventHandler(this.mRunCSharp_Click);
+            // 
+            // mRunHTML
+            // 
+            this.mRunHTML.Name = "mRunHTML";
+            this.mRunHTML.Size = new System.Drawing.Size(180, 22);
+            this.mRunHTML.Text = "HTML";
+            this.mRunHTML.Click += new System.EventHandler(this.mRunHTML_Click);
+            // 
+            // mRunPHP
+            // 
+            this.mRunPHP.Name = "mRunPHP";
+            this.mRunPHP.Size = new System.Drawing.Size(180, 22);
+            this.mRunPHP.Text = "PHP";
+            this.mRunPHP.Click += new System.EventHandler(this.mRunPHP_Click);
+            // 
+            // autocompleteMenu
+            // 
+            this.autocompleteMenu.Colors = ((AutocompleteMenuNS.Colors)(resources.GetObject("autocompleteMenu.Colors")));
+            this.autocompleteMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.autocompleteMenu.ImageList = null;
+            this.autocompleteMenu.Items = new string[0];
+            this.autocompleteMenu.TargetControlWrapper = null;
             // 
             // MainForm
             // 
@@ -674,6 +715,10 @@
         public System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.FontDialog fontDialog;
         private FastColoredTextBoxNS.FastColoredTextBox fastColoredTextBox1;
+        private System.Windows.Forms.ToolStripMenuItem mRunCSharp;
+        private System.Windows.Forms.ToolStripMenuItem mRunHTML;
+        private System.Windows.Forms.ToolStripMenuItem mRunPHP;
+        private AutocompleteMenuNS.AutocompleteMenu autocompleteMenu;
     }
 }
 

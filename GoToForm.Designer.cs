@@ -64,6 +64,7 @@
             this.butGo.TabIndex = 2;
             this.butGo.Text = "Go";
             this.butGo.UseVisualStyleBackColor = false;
+            this.butGo.Click += new System.EventHandler(this.butGo_Click);
             // 
             // butCancel
             // 
@@ -74,6 +75,7 @@
             this.butCancel.TabIndex = 3;
             this.butCancel.Text = "Cancel";
             this.butCancel.UseVisualStyleBackColor = false;
+            this.butCancel.Click += new System.EventHandler(this.butCancel_Click);
             // 
             // GoToForm
             // 

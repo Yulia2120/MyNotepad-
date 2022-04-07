@@ -65,6 +65,7 @@
             this.tbFind.Name = "tbFind";
             this.tbFind.Size = new System.Drawing.Size(397, 20);
             this.tbFind.TabIndex = 2;
+            this.tbFind.TextChanged += new System.EventHandler(this.tbFind_TextChanged);
             // 
             // tbReplace
             // 
@@ -72,6 +73,7 @@
             this.tbReplace.Name = "tbReplace";
             this.tbReplace.Size = new System.Drawing.Size(397, 20);
             this.tbReplace.TabIndex = 3;
+            this.tbReplace.TextChanged += new System.EventHandler(this.tbReplace_TextChanged);
             // 
             // cbReg
             // 
@@ -83,6 +85,7 @@
             this.cbReg.TabIndex = 4;
             this.cbReg.Text = "Register";
             this.cbReg.UseVisualStyleBackColor = true;
+            this.cbReg.CheckedChanged += new System.EventHandler(this.cbReg_CheckedChanged);
             // 
             // btFind
             // 
@@ -94,6 +97,7 @@
             this.btFind.TabIndex = 5;
             this.btFind.Text = "Find";
             this.btFind.UseVisualStyleBackColor = false;
+            this.btFind.Click += new System.EventHandler(this.btFind_Click);
             // 
             // btReplace
             // 
@@ -152,6 +156,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Find and Replace";
             this.TopMost = true;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SearchForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -164,9 +169,9 @@
         private System.Windows.Forms.TextBox tbFind;
         private System.Windows.Forms.TextBox tbReplace;
         private System.Windows.Forms.CheckBox cbReg;
-        private System.Windows.Forms.Button btFind;
         private System.Windows.Forms.Button btReplace;
         private System.Windows.Forms.Button btReplaceAll;
         private System.Windows.Forms.Button btCancel;
+        public System.Windows.Forms.Button btFind;
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.mFile = new System.Windows.Forms.ToolStripMenuItem();
@@ -85,9 +86,12 @@
             this.printDialog = new System.Windows.Forms.PrintDialog();
             this.printDocument = new System.Drawing.Printing.PrintDocument();
             this.pageSetupDialog = new System.Windows.Forms.PageSetupDialog();
+            this.fontDialog = new System.Windows.Forms.FontDialog();
+            this.fastColoredTextBox1 = new FastColoredTextBoxNS.FastColoredTextBox();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fastColoredTextBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -306,20 +310,23 @@
             // 
             this.mFormatTransfer.CheckOnClick = true;
             this.mFormatTransfer.Name = "mFormatTransfer";
-            this.mFormatTransfer.Size = new System.Drawing.Size(129, 22);
+            this.mFormatTransfer.Size = new System.Drawing.Size(180, 22);
             this.mFormatTransfer.Text = "Wordwrap";
+            this.mFormatTransfer.CheckStateChanged += new System.EventHandler(this.mFormatTransfer_CheckStateChanged);
             // 
             // mFormatFont
             // 
             this.mFormatFont.Name = "mFormatFont";
-            this.mFormatFont.Size = new System.Drawing.Size(129, 22);
+            this.mFormatFont.Size = new System.Drawing.Size(180, 22);
             this.mFormatFont.Text = "Font";
+            this.mFormatFont.Click += new System.EventHandler(this.mFormatFont_Click);
             // 
             // mRun
             // 
             this.mRun.Name = "mRun";
             this.mRun.Size = new System.Drawing.Size(40, 20);
             this.mRun.Text = "Run";
+            this.mRun.Click += new System.EventHandler(this.mRun_Click);
             // 
             // mView
             // 
@@ -335,8 +342,9 @@
             this.mViewStatusStrip.CheckOnClick = true;
             this.mViewStatusStrip.CheckState = System.Windows.Forms.CheckState.Checked;
             this.mViewStatusStrip.Name = "mViewStatusStrip";
-            this.mViewStatusStrip.Size = new System.Drawing.Size(133, 22);
+            this.mViewStatusStrip.Size = new System.Drawing.Size(180, 22);
             this.mViewStatusStrip.Text = "Status Strip";
+            this.mViewStatusStrip.CheckStateChanged += new System.EventHandler(this.mViewStatusStrip_CheckStateChanged);
             // 
             // mHelp
             // 
@@ -349,8 +357,9 @@
             // mHelpAboutProgram
             // 
             this.mHelpAboutProgram.Name = "mHelpAboutProgram";
-            this.mHelpAboutProgram.Size = new System.Drawing.Size(156, 22);
+            this.mHelpAboutProgram.Size = new System.Drawing.Size(180, 22);
             this.mHelpAboutProgram.Text = "About Program";
+            this.mHelpAboutProgram.Click += new System.EventHandler(this.mHelpAboutProgram_Click);
             // 
             // statusStrip
             // 
@@ -539,11 +548,47 @@
             // 
             this.printDialog.UseEXDialog = true;
             // 
+            // fastColoredTextBox1
+            // 
+            this.fastColoredTextBox1.AutoCompleteBracketsList = new char[] {
+        '(',
+        ')',
+        '{',
+        '}',
+        '[',
+        ']',
+        '\"',
+        '\"',
+        '\'',
+        '\''};
+            this.fastColoredTextBox1.AutoIndentCharsPatterns = "^\\s*[\\w\\.]+(\\s\\w+)?\\s*(?<range>=)\\s*(?<range>[^;=]+);\r\n^\\s*(case|default)\\s*[^:]*" +
+    "(?<range>:)\\s*(?<range>[^;]+);";
+            this.fastColoredTextBox1.AutoScrollMinSize = new System.Drawing.Size(27, 14);
+            this.fastColoredTextBox1.BackBrush = null;
+            this.fastColoredTextBox1.CharHeight = 14;
+            this.fastColoredTextBox1.CharWidth = 8;
+            this.fastColoredTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.fastColoredTextBox1.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.fastColoredTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fastColoredTextBox1.Enabled = false;
+            this.fastColoredTextBox1.Font = new System.Drawing.Font("Courier New", 9.75F);
+            this.fastColoredTextBox1.IsReplaceMode = false;
+            this.fastColoredTextBox1.LineNumberColor = System.Drawing.Color.DodgerBlue;
+            this.fastColoredTextBox1.Location = new System.Drawing.Point(0, 49);
+            this.fastColoredTextBox1.Name = "fastColoredTextBox1";
+            this.fastColoredTextBox1.Paddings = new System.Windows.Forms.Padding(0);
+            this.fastColoredTextBox1.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
+            this.fastColoredTextBox1.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("fastColoredTextBox1.ServiceColors")));
+            this.fastColoredTextBox1.Size = new System.Drawing.Size(744, 427);
+            this.fastColoredTextBox1.TabIndex = 3;
+            this.fastColoredTextBox1.Zoom = 100;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(744, 498);
+            this.Controls.Add(this.fastColoredTextBox1);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.statusStrip);
@@ -562,6 +607,7 @@
             this.statusStrip.PerformLayout();
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fastColoredTextBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -621,10 +667,12 @@
         private System.Windows.Forms.ToolStripButton вставкаToolStripButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripButton справкаToolStripButton;
-        private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.PrintDialog printDialog;
         private System.Drawing.Printing.PrintDocument printDocument;
         private System.Windows.Forms.PageSetupDialog pageSetupDialog;
+        public System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.FontDialog fontDialog;
+        private FastColoredTextBoxNS.FastColoredTextBox fastColoredTextBox1;
     }
 }
 

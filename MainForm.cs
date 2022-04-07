@@ -18,6 +18,8 @@ namespace MyNotepad__
         bool tbChange = false;
         string docPath = "";
 
+        public object myTextBox { get; internal set; }
+
         public void CreatePages()
         {
             if (tabControl1.SelectedIndex == tabControl1.TabCount - 1)
@@ -31,7 +33,13 @@ namespace MyNotepad__
             }
         }
 
-
+        private void noteBox_TextChanged(object sender, EventArgs e)
+        {
+            tbChange = true;
+            TextWork.StatusAnalize(ref notebox, ref statusLinesCount, ref statusWordsCount, ref statusCharSpaceCount, ref statusCharCount);
+            TextWork.mEditEnableds(ref notebox, ref mEditCopy, ref mEditCut, ref mEditDel, ref mEditFind, ref mEditGo);
+            TextWork.mEditEnableds(ref notebox, ref mEditCopy, ref mEditCut, ref mEditDel, ref mEditFind, ref mEditGo);
+        }
         public void MainForm_Load(object sender, EventArgs e)
         {
             this.Width = Properties.Settings.Default.formWidth;
@@ -103,7 +111,7 @@ namespace MyNotepad__
             }
         }
 
-        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        public void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
 
             Properties.Settings.Default.formWidth = this.Width;
@@ -174,7 +182,6 @@ namespace MyNotepad__
 
         private void mFileOpen_Click(object sender, EventArgs e) // открыть документ
         {
-            CreatePages();
 
             if (tbChange == true)
             {
@@ -310,14 +317,14 @@ namespace MyNotepad__
 
         }
 
-        private void mEditFind_Click(object sender, EventArgs e)
+        public void mEditFind_Click(object sender, EventArgs e)
         {
             SearchForm findText = new SearchForm();
             findText.Owner = this;
             findText.Show();
         }
 
-        private void mEditGiveAll_Click(object sender, EventArgs e)
+        public void mEditGiveAll_Click(object sender, EventArgs e)
         {
             notebox.SelectAll();
         }
@@ -367,6 +374,59 @@ namespace MyNotepad__
             {
                 FileWork.CreateFile(ref notebox, ref tbChange, ref docPath);
             }
+        }
+
+        private void mFormatFont_Click(object sender, EventArgs e)
+        {
+            fontDialog.Font = notebox.Font;
+            DialogResult = fontDialog.ShowDialog();
+            if (DialogResult == DialogResult.OK)
+            {
+                notebox.Font = fontDialog.Font;
+            }
+        }
+
+        private void mFormatTransfer_CheckStateChanged(object sender, EventArgs e)
+        {
+            if (mFormatTransfer.CheckState == CheckState.Checked)
+            {
+                notebox.WordWrap = true;
+                notebox.ScrollBars = ScrollBars.Vertical;
+                mEditGo.Enabled = false;
+                statusLab1.Visible = false;
+                statusLinesCount.Visible = false;
+            }
+            else
+            {
+                notebox.WordWrap = false;
+                notebox.ScrollBars = ScrollBars.Both;
+                mEditGo.Enabled = true;
+                statusLab1.Visible = true;
+                statusLinesCount.Visible = true;
+            }
+        }
+
+        private void mViewStatusStrip_CheckStateChanged(object sender, EventArgs e)
+        {
+            if (mViewStatusStrip.CheckState == CheckState.Checked)
+            {
+                statusStrip.Visible = true;
+            }
+            else
+            {
+                statusStrip.Visible = false;
+            }
+        }
+
+        private void mHelpAboutProgram_Click(object sender, EventArgs e)
+        {
+            AboutForm about = new AboutForm();
+            about.Show();
+        }
+
+        private void mRun_Click(object sender, EventArgs e)
+        {
+
         }
 
         public MainForm()

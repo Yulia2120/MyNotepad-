@@ -11,10 +11,22 @@ namespace MyNotepad__
         Image CloseImage, AddImage;
         Point _imageLocation = new Point(20, 4);
         Point imageHitArea = new Point(20, 4);
-        TextBox notebox = new TextBox();
+        MyTextBox notebox = new MyTextBox();
         bool tbChange = false;
         string docPath = "";
 
+        public void CreatePages()
+        {
+            if (tabControl1.SelectedIndex == tabControl1.TabCount - 1)
+            {
+                TabPage tab = new TabPage();
+                tab.Text = "Page";
+                tabControl1.Controls.Add(tab);
+                tabControl1.TabPages[tabControl1.TabCount - 1].Text = "Page" + tabControl1.TabCount.ToString();
+                tabControl1.TabPages[tabControl1.TabCount - 1].Controls.Add(notebox);
+              
+            }
+        }
 
 
         public void MainForm_Load(object sender, EventArgs e)
@@ -74,8 +86,7 @@ namespace MyNotepad__
                 tab.Text = "Page";
                 tabControl1.Controls.Add(tab);
                 tabControl1.TabPages[tabControl1.TabCount - 1].Text = "Page" + tabControl1.TabCount.ToString();
-                tabControl1.TabPages[tabControl1.TabCount - 1].Controls.Add(new TextBox() { BorderStyle = BorderStyle.None, Top = 26, Dock = DockStyle.Fill, Multiline = true, ScrollBars = ScrollBars.Both });
-
+                tabControl1.TabPages[tabControl1.TabCount - 1].Controls.Add(new MyTextBox() { BorderStyle = BorderStyle.None, Top = 26, Dock = DockStyle.Fill });
 
 
             }
@@ -103,16 +114,7 @@ namespace MyNotepad__
 
         private void mFileNew_Click(object sender, EventArgs e)   // создать документ
         {
-            if (tabControl1.SelectedIndex == tabControl1.TabCount - 1)
-            {
-                TabPage tab = new TabPage();
-                tab.Text = "Page";
-                tabControl1.Controls.Add(tab);
-                tabControl1.TabPages[tabControl1.TabCount - 1].Text = "Page" + tabControl1.TabCount.ToString();
-                tabControl1.TabPages[tabControl1.TabCount - 1].Controls.Add(new TextBox() {
-                BorderStyle = BorderStyle.None, Top = 26, Dock = DockStyle.Fill, Multiline = true, ScrollBars = ScrollBars.Both });
-
-            }
+            CreatePages();
 
             if (tbChange == true)
             {
@@ -147,6 +149,8 @@ namespace MyNotepad__
 
         private void mFileOpen_Click(object sender, EventArgs e) // открыть документ
         {
+            CreatePages();
+
             if (tbChange == true)
             {
                 DialogResult message = MessageBox.Show("Сохранить текущий документ перед открытием нового?", "Открытие документа", MessageBoxButtons.YesNoCancel);

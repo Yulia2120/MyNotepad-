@@ -101,10 +101,9 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.NumericUpDown tbLineNum;
         private System.Windows.Forms.Label labGo;
         private System.Windows.Forms.Button butGo;
         private System.Windows.Forms.Button butCancel;
+        public System.Windows.Forms.NumericUpDown tbLineNum;
     }
 }

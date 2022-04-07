@@ -225,6 +225,7 @@
             this.mEditCut.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
             this.mEditCut.Size = new System.Drawing.Size(204, 22);
             this.mEditCut.Text = "Cut";
+            this.mEditCut.Click += new System.EventHandler(this.mEditCut_Click);
             // 
             // mEditCopy
             // 
@@ -232,6 +233,7 @@
             this.mEditCopy.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
             this.mEditCopy.Size = new System.Drawing.Size(204, 22);
             this.mEditCopy.Text = "Copy";
+            this.mEditCopy.Click += new System.EventHandler(this.mEditCopy_Click);
             // 
             // mEditPaste
             // 
@@ -239,6 +241,7 @@
             this.mEditPaste.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
             this.mEditPaste.Size = new System.Drawing.Size(204, 22);
             this.mEditPaste.Text = "Paste";
+            this.mEditPaste.Click += new System.EventHandler(this.mEditPaste_Click);
             // 
             // mEditDel
             // 
@@ -246,6 +249,7 @@
             this.mEditDel.ShortcutKeys = System.Windows.Forms.Keys.Delete;
             this.mEditDel.Size = new System.Drawing.Size(204, 22);
             this.mEditDel.Text = "Delete";
+            this.mEditDel.Click += new System.EventHandler(this.mEditDel_Click);
             // 
             // toolStripSeparator4
             // 
@@ -258,6 +262,7 @@
             this.mEditFind.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
             this.mEditFind.Size = new System.Drawing.Size(204, 22);
             this.mEditFind.Text = "Find and Replace";
+            this.mEditFind.Click += new System.EventHandler(this.mEditFind_Click);
             // 
             // mEditGo
             // 
@@ -265,6 +270,7 @@
             this.mEditGo.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G)));
             this.mEditGo.Size = new System.Drawing.Size(204, 22);
             this.mEditGo.Text = "Go";
+            this.mEditGo.Click += new System.EventHandler(this.mEditGo_Click);
             // 
             // toolStripSeparator5
             // 
@@ -277,6 +283,7 @@
             this.mEditGiveAll.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
             this.mEditGiveAll.Size = new System.Drawing.Size(204, 22);
             this.mEditGiveAll.Text = "Select All";
+            this.mEditGiveAll.Click += new System.EventHandler(this.mEditGiveAll_Click);
             // 
             // mEditTime
             // 
@@ -284,6 +291,7 @@
             this.mEditTime.ShortcutKeys = System.Windows.Forms.Keys.F5;
             this.mEditTime.Size = new System.Drawing.Size(204, 22);
             this.mEditTime.Text = "Date and Time";
+            this.mEditTime.Click += new System.EventHandler(this.mEditTime_Click);
             // 
             // mFormat
             // 

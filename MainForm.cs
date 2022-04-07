@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
@@ -277,6 +278,63 @@ namespace MyNotepad__
         private void mEditCancel_Click(object sender, EventArgs e)
         {
             notebox.Undo();
+        }
+
+        private void mEditCut_Click(object sender, EventArgs e)
+        {
+            if (notebox.SelectionLength > 0)
+            {
+                notebox.Cut();
+            }
+        }
+
+        private void mEditCopy_Click(object sender, EventArgs e)
+        {
+            if (notebox.SelectionLength > 0)
+            {
+                notebox.Copy();
+            }
+        }
+
+        private void mEditPaste_Click(object sender, EventArgs e)
+        {
+            notebox.Paste();
+        }
+
+        private void mEditDel_Click(object sender, EventArgs e)
+        {
+            if (notebox.SelectionLength > 0)
+            {
+                notebox.SelectedText = "";
+            }
+
+        }
+
+        private void mEditFind_Click(object sender, EventArgs e)
+        {
+            SearchForm findText = new SearchForm();
+            findText.Owner = this;
+            findText.Show();
+        }
+
+        private void mEditGiveAll_Click(object sender, EventArgs e)
+        {
+            notebox.SelectAll();
+        }
+
+        private void mEditTime_Click(object sender, EventArgs e)
+        {
+            notebox.AppendText(Environment.NewLine + Convert.ToString(System.DateTime.Now));
+        }
+
+        private void mEditGo_Click(object sender, EventArgs e)
+        {
+
+            GoToForm gotoform = new GoToForm();
+            gotoform.Owner = this;
+            gotoform.tbLineNum.Minimum = 0;
+            gotoform.tbLineNum.Maximum = notebox.Lines.Count();
+            gotoform.ShowDialog();
         }
 
         public MainForm()

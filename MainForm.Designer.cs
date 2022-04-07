@@ -573,6 +573,7 @@
             this.fastColoredTextBox1.Enabled = false;
             this.fastColoredTextBox1.Font = new System.Drawing.Font("Courier New", 9.75F);
             this.fastColoredTextBox1.IsReplaceMode = false;
+            this.fastColoredTextBox1.Language = FastColoredTextBoxNS.Language.CSharp;
             this.fastColoredTextBox1.LineNumberColor = System.Drawing.Color.DodgerBlue;
             this.fastColoredTextBox1.Location = new System.Drawing.Point(0, 49);
             this.fastColoredTextBox1.Name = "fastColoredTextBox1";

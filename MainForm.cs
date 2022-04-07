@@ -53,6 +53,7 @@ namespace MyNotepad__
             { mFormatTransfer.CheckState = CheckState.Checked; }
             else
             { mFormatTransfer.CheckState = CheckState.Unchecked; }
+            fastColoredTextBox1.Visible = false;
         }
 
         public void tabControl1_DrawItem(object sender, DrawItemEventArgs e) // создаем пользовательский TabPage
@@ -147,6 +148,8 @@ namespace MyNotepad__
 
         private void mFileNew_Click(object sender, EventArgs e)   // создать документ
         {
+            fastColoredTextBox1.Visible = false;
+            fastColoredTextBox1.Enabled = false;
             CreatePages();
 
             if (tbChange == true)
@@ -346,6 +349,8 @@ namespace MyNotepad__
 
         private void newToolStripButton_Click(object sender, EventArgs e)
         {
+            fastColoredTextBox1.Visible = false;
+            fastColoredTextBox1.Enabled = false;
             CreatePages();
             if (tbChange == true)
             {
@@ -426,7 +431,8 @@ namespace MyNotepad__
 
         private void mRun_Click(object sender, EventArgs e)
         {
-
+            fastColoredTextBox1.Visible = true;
+            fastColoredTextBox1.Enabled = true;
         }
 
         public MainForm()

@@ -7,7 +7,7 @@ using System.Text;
 
 namespace MyNotepad__
 {
-    public class FileWorks
+    public class FileWork
     {
         public static void CreateFile(ref TextBox notebox, ref bool tbChange, ref string docPath) // Метод "Создать новый документ"
         {

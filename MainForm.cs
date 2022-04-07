@@ -15,17 +15,10 @@ namespace MyNotepad__
         bool tbChange = false;
         string docPath = "";
 
-     
+
 
         public void MainForm_Load(object sender, EventArgs e)
         {
-            AddImage = Properties.Resources.Add;
-            CloseImage = Properties.Resources.Close;
-            tabControl1.Padding = new Point(20, 4);
-            tabControl1.TabPages[tabControl1.TabCount - 1].Text = "Page";
-            tabControl1.TabPages[tabControl1.TabCount - 1].Controls.Add(new TextBox() { BorderStyle = BorderStyle.None, Top = 26,
-            Dock = DockStyle.Fill, Multiline = true, ScrollBars = ScrollBars.Both});
-
             this.Width = Properties.Settings.Default.formWidth;
             this.Height = Properties.Settings.Default.formHeight;
             notebox.Font = Properties.Settings.Default.textFont;
@@ -44,6 +37,8 @@ namespace MyNotepad__
 
         public void tabControl1_DrawItem(object sender, DrawItemEventArgs e)
         {
+            AddImage = Properties.Resources.Add;
+            CloseImage = Properties.Resources.Close;
             Image img;
             if (e.Index == tabControl1.TabCount - 1)
             {
@@ -108,6 +103,86 @@ namespace MyNotepad__
             Properties.Settings.Default.Save();
 
         }
+
+        private void mFileNew_Click(object sender, EventArgs e)
+        {
+            if (tabControl1.SelectedIndex == tabControl1.TabCount - 1)
+            {
+                TabPage tab = new TabPage();
+                tab.Text = "Page";
+                tabControl1.Controls.Add(tab);
+                tabControl1.TabPages[tabControl1.TabCount - 1].Text = "Page" + tabControl1.TabCount.ToString();
+                tabControl1.TabPages[tabControl1.TabCount - 1].Controls.Add(new TextBox() { BorderStyle = BorderStyle.None, Top = 26, Dock = DockStyle.Fill, Multiline = true, ScrollBars = ScrollBars.Both });
+
+
+
+            }
+
+            if (tbChange == true)
+            {
+                DialogResult message = MessageBox.Show("Сохранить текущий документ перед созданием нового?", "Создание документа", MessageBoxButtons.YesNoCancel);
+                if (message == DialogResult.Yes)
+                {
+
+
+                    if (docPath != "")
+                    {
+                        FileWork.SaveFile(ref notebox, ref tbChange, ref docPath);
+                        FileWork.CreateFile(ref notebox, ref tbChange, ref docPath);
+                    }
+                    else if (docPath == "")
+                    {
+                        FileWork.SaveAsFile(ref notebox, ref tbChange, ref docPath);
+                        FileWork.CreateFile(ref notebox, ref tbChange, ref docPath);
+                    }
+                }
+                else if (message == DialogResult.No)
+                {
+                    FileWork.CreateFile(ref notebox, ref tbChange, ref docPath);
+                }
+            }
+            else
+            {
+                FileWork.CreateFile(ref notebox, ref tbChange, ref docPath);
+            }
+        }
+
+       
+
+        private void mFileOpen_Click(object sender, EventArgs e)
+        {
+            if (tbChange == true)
+            {
+                DialogResult message = MessageBox.Show("Сохранить текущий документ перед открытием нового?", "Открытие документа", MessageBoxButtons.YesNoCancel);
+                if (message == DialogResult.Yes)
+                {
+                    if (docPath != "")
+                    {
+                        FileWork.SaveFile(ref notebox, ref tbChange, ref docPath);
+                        FileWork.OpenFile(ref notebox, ref tbChange, ref docPath);
+                    }
+                    else if (docPath == "")
+                    {
+                        FileWork.SaveAsFile(ref notebox, ref tbChange, ref docPath);
+                        FileWork.OpenFile(ref notebox, ref tbChange, ref docPath);
+                    }
+                }
+                else if (message == DialogResult.No)
+                {
+                    FileWork.OpenFile(ref notebox, ref tbChange, ref docPath);
+                }
+                else
+                {
+                    return;
+                }
+            }
+            else
+            {
+                FileWork.OpenFile(ref notebox, ref tbChange, ref docPath);
+            }
+        }
+
+       
 
         public MainForm()
         {

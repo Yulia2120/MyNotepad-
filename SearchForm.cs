@@ -1,10 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace MyNotepad__
@@ -43,17 +37,17 @@ namespace MyNotepad__
         private void btFind_Click(object sender, EventArgs e)   // Кнопка "Найти"
         {
             MainForm main = Owner as MainForm;
-            if (main != null)
-            {
-                //if (cbReg.CheckState == CheckState.Checked)
-                //{
-                //    TextWork.FindTextBox(ref main.notebox, tbFind.Text, ref findCutLength, true);
-                //}
-                //else
-                //{
-                //    TextWork.FindTextBox(ref main.notebox, tbFind.Text, ref findCutLength, false);
-                //}
-            }
+            //if (main != null)
+            //{
+            //    if (cbReg.CheckState == CheckState.Checked)
+            //    {
+            //        TextWork.FindTextBox(ref main.notebox, tbFind.Text, ref findCutLength, true);
+            //    }
+            //    else
+            //    {
+            //        TextWork.FindTextBox(ref main.notebox, tbFind.Text, ref findCutLength, false);
+            //    }
+            //}
         }
         private void btReplace_Click(object sender, EventArgs e)  // Кнопка "Заменить"
         {

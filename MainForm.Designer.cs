@@ -665,7 +665,8 @@
             this.txtBoxStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.autocompleteMenu.SetAutocompleteMenu(this.txtBoxStatus, null);
-            this.txtBoxStatus.Location = new System.Drawing.Point(21, 452);
+            this.txtBoxStatus.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtBoxStatus.Location = new System.Drawing.Point(20, 452);
             this.txtBoxStatus.Multiline = true;
             this.txtBoxStatus.Name = "txtBoxStatus";
             this.txtBoxStatus.Size = new System.Drawing.Size(886, 87);

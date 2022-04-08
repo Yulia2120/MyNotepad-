@@ -464,6 +464,11 @@ namespace MyNotepad__
 
         }
 
+        private void mRunCompile_Click(object sender, EventArgs e)
+        {
+
+        }
+
         public MainForm()
         {
             InitializeComponent();

@@ -61,6 +61,7 @@
             this.mRunCSharp = new System.Windows.Forms.ToolStripMenuItem();
             this.mRunHTML = new System.Windows.Forms.ToolStripMenuItem();
             this.mRunPHP = new System.Windows.Forms.ToolStripMenuItem();
+            this.mRunCompile = new System.Windows.Forms.ToolStripMenuItem();
             this.mView = new System.Windows.Forms.ToolStripMenuItem();
             this.mViewStatusStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.mHelp = new System.Windows.Forms.ToolStripMenuItem();
@@ -92,7 +93,10 @@
             this.fontDialog = new System.Windows.Forms.FontDialog();
             this.fastColoredTextBox1 = new FastColoredTextBoxNS.FastColoredTextBox();
             this.autocompleteMenu = new AutocompleteMenuNS.AutocompleteMenu();
-            this.mRunCompile = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtBoxFramework = new System.Windows.Forms.TextBox();
+            this.labFramework = new System.Windows.Forms.Label();
+            this.labFile = new System.Windows.Forms.Label();
+            this.txtBoxFile = new System.Windows.Forms.TextBox();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
@@ -111,7 +115,7 @@
             this.mHelp});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
-            this.menuStrip.Size = new System.Drawing.Size(744, 24);
+            this.menuStrip.Size = new System.Drawing.Size(908, 24);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "menuStrip";
             // 
@@ -343,23 +347,30 @@
             // 
             this.mRunCSharp.CheckOnClick = true;
             this.mRunCSharp.Name = "mRunCSharp";
-            this.mRunCSharp.Size = new System.Drawing.Size(180, 22);
+            this.mRunCSharp.Size = new System.Drawing.Size(119, 22);
             this.mRunCSharp.Text = "CSharp";
             this.mRunCSharp.Click += new System.EventHandler(this.mRunCSharp_Click);
             // 
             // mRunHTML
             // 
             this.mRunHTML.Name = "mRunHTML";
-            this.mRunHTML.Size = new System.Drawing.Size(180, 22);
+            this.mRunHTML.Size = new System.Drawing.Size(119, 22);
             this.mRunHTML.Text = "HTML";
             this.mRunHTML.Click += new System.EventHandler(this.mRunHTML_Click);
             // 
             // mRunPHP
             // 
             this.mRunPHP.Name = "mRunPHP";
-            this.mRunPHP.Size = new System.Drawing.Size(180, 22);
+            this.mRunPHP.Size = new System.Drawing.Size(119, 22);
             this.mRunPHP.Text = "PHP";
             this.mRunPHP.Click += new System.EventHandler(this.mRunPHP_Click);
+            // 
+            // mRunCompile
+            // 
+            this.mRunCompile.Name = "mRunCompile";
+            this.mRunCompile.Size = new System.Drawing.Size(119, 22);
+            this.mRunCompile.Text = "Сompile";
+            this.mRunCompile.Click += new System.EventHandler(this.mRunCompile_Click);
             // 
             // mView
             // 
@@ -406,9 +417,9 @@
             this.statusCharSpaceCount,
             this.statusLab4,
             this.statusCharCount});
-            this.statusStrip.Location = new System.Drawing.Point(0, 476);
+            this.statusStrip.Location = new System.Drawing.Point(0, 529);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(744, 22);
+            this.statusStrip.Size = new System.Drawing.Size(908, 22);
             this.statusStrip.TabIndex = 1;
             this.statusStrip.Text = "statusStrip";
             // 
@@ -478,7 +489,7 @@
             this.справкаToolStripButton});
             this.toolStrip.Location = new System.Drawing.Point(0, 24);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(744, 25);
+            this.toolStrip.Size = new System.Drawing.Size(908, 25);
             this.toolStrip.TabIndex = 2;
             this.toolStrip.Text = "toolStrip";
             // 
@@ -574,7 +585,7 @@
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(744, 427);
+            this.tabControl1.Size = new System.Drawing.Size(908, 480);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl1.TabIndex = 0;
             this.tabControl1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControl1_DrawItem);
@@ -617,7 +628,7 @@
             this.fastColoredTextBox1.Paddings = new System.Windows.Forms.Padding(0);
             this.fastColoredTextBox1.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
             this.fastColoredTextBox1.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("fastColoredTextBox1.ServiceColors")));
-            this.fastColoredTextBox1.Size = new System.Drawing.Size(744, 427);
+            this.fastColoredTextBox1.Size = new System.Drawing.Size(908, 480);
             this.fastColoredTextBox1.TabIndex = 3;
             this.fastColoredTextBox1.Zoom = 100;
             this.fastColoredTextBox1.TextChanged += new System.EventHandler<FastColoredTextBoxNS.TextChangedEventArgs>(this.fastColoredTextBox1_TextChanged);
@@ -630,18 +641,51 @@
             this.autocompleteMenu.Items = new string[0];
             this.autocompleteMenu.TargetControlWrapper = null;
             // 
-            // mRunCompile
+            // txtBoxFramework
             // 
-            this.mRunCompile.Name = "mRunCompile";
-            this.mRunCompile.Size = new System.Drawing.Size(180, 22);
-            this.mRunCompile.Text = "Сompile";
-            this.mRunCompile.Click += new System.EventHandler(this.mRunCompile_Click);
+            this.autocompleteMenu.SetAutocompleteMenu(this.txtBoxFramework, null);
+            this.txtBoxFramework.Location = new System.Drawing.Point(721, 29);
+            this.txtBoxFramework.Name = "txtBoxFramework";
+            this.txtBoxFramework.Size = new System.Drawing.Size(180, 20);
+            this.txtBoxFramework.TabIndex = 5;
+            // 
+            // labFramework
+            // 
+            this.labFramework.AutoSize = true;
+            this.labFramework.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labFramework.Location = new System.Drawing.Point(627, 31);
+            this.labFramework.Name = "labFramework";
+            this.labFramework.Size = new System.Drawing.Size(66, 15);
+            this.labFramework.TabIndex = 4;
+            this.labFramework.Text = "Framework";
+            // 
+            // labFile
+            // 
+            this.labFile.AutoSize = true;
+            this.labFile.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labFile.Location = new System.Drawing.Point(343, 29);
+            this.labFile.Name = "labFile";
+            this.labFile.Size = new System.Drawing.Size(25, 15);
+            this.labFile.TabIndex = 6;
+            this.labFile.Text = "File";
+            // 
+            // txtBoxFile
+            // 
+            this.autocompleteMenu.SetAutocompleteMenu(this.txtBoxFile, null);
+            this.txtBoxFile.Location = new System.Drawing.Point(405, 28);
+            this.txtBoxFile.Name = "txtBoxFile";
+            this.txtBoxFile.Size = new System.Drawing.Size(180, 20);
+            this.txtBoxFile.TabIndex = 7;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(744, 498);
+            this.ClientSize = new System.Drawing.Size(908, 551);
+            this.Controls.Add(this.txtBoxFile);
+            this.Controls.Add(this.labFile);
+            this.Controls.Add(this.txtBoxFramework);
+            this.Controls.Add(this.labFramework);
             this.Controls.Add(this.fastColoredTextBox1);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.toolStrip);
@@ -732,6 +776,10 @@
         private System.Windows.Forms.ToolStripMenuItem mRunPHP;
         private AutocompleteMenuNS.AutocompleteMenu autocompleteMenu;
         private System.Windows.Forms.ToolStripMenuItem mRunCompile;
+        private System.Windows.Forms.Label labFramework;
+        private System.Windows.Forms.TextBox txtBoxFramework;
+        private System.Windows.Forms.Label labFile;
+        private System.Windows.Forms.TextBox txtBoxFile;
     }
 }
 

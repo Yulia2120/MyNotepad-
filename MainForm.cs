@@ -4,6 +4,10 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.CodeDom.Compiler;
+using System.Diagnostics;
+using Microsoft.CSharp;
+using System.Collections.Generic;
 
 namespace MyNotepad__
 {
@@ -466,8 +470,11 @@ namespace MyNotepad__
 
         private void mRunCompile_Click(object sender, EventArgs e)
         {
-
+            CSharpCodeProvider provider = new CSharpCodeProvider(new Dictionary<string, string>() { { "CompilerVersion ", txtBoxFramework.Text } });
+            CompilerParameters parameters = new CompilerParameters(new string[] { "mscorlib.dll","System.Core.dll" }, txtBoxFile.Text, true );
+            parameters.GenerateExecutable = true;
         }
+       
 
         public MainForm()
         {

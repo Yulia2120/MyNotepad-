@@ -150,6 +150,7 @@ namespace MyNotepad__
         {
             fastColoredTextBox1.Visible = false;
             fastColoredTextBox1.Enabled = false;
+
             CreatePages();
 
             if (tbChange == true)
@@ -185,6 +186,8 @@ namespace MyNotepad__
 
         private void mFileOpen_Click(object sender, EventArgs e) // открыть документ
         {
+            fastColoredTextBox1.Visible = false;
+            fastColoredTextBox1.Enabled = false;
 
             if (tbChange == true)
             {
@@ -452,12 +455,20 @@ namespace MyNotepad__
 
         private void fastColoredTextBox1_TextChanged(object sender, FastColoredTextBoxNS.TextChangedEventArgs e)
         {
+            string text = fastColoredTextBox1.Text;
+            statusLinesCount.Text = fastColoredTextBox1.Lines.Count().ToString();
+            statusWordsCount.Text = text.Split(new Char[] { ' ', '\t', '\n', '\r', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-',
+                '_', '+', '=', '[', '{', ']', '}', '/', '\\', '|', '"', ':', ';', '.', ',', '>', '<' }, StringSplitOptions.RemoveEmptyEntries).Length.ToString();
+            statusCharCount.Text = text.Replace(" ", "").Replace("\t", "").Replace("\n", "").Replace("\r", "").ToCharArray().Length.ToString();
+            statusCharSpaceCount.Text = text.ToCharArray().Length.ToString();
 
         }
 
         public MainForm()
         {
             InitializeComponent();
+            this.notebox.TextChanged += new System.EventHandler(this.noteBox_TextChanged);
+
             this.Text = Properties.Settings.Default.newDocName + " - " + Properties.Settings.Default.programmName;
             autocompleteMenu.Items = File.ReadAllLines("cs-reserv-list.dicr");
         }

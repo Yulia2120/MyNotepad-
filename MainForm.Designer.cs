@@ -58,6 +58,9 @@
             this.mFormatTransfer = new System.Windows.Forms.ToolStripMenuItem();
             this.mFormatFont = new System.Windows.Forms.ToolStripMenuItem();
             this.mRun = new System.Windows.Forms.ToolStripMenuItem();
+            this.mRunCSharp = new System.Windows.Forms.ToolStripMenuItem();
+            this.mRunHTML = new System.Windows.Forms.ToolStripMenuItem();
+            this.mRunPHP = new System.Windows.Forms.ToolStripMenuItem();
             this.mView = new System.Windows.Forms.ToolStripMenuItem();
             this.mViewStatusStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.mHelp = new System.Windows.Forms.ToolStripMenuItem();
@@ -88,9 +91,6 @@
             this.pageSetupDialog = new System.Windows.Forms.PageSetupDialog();
             this.fontDialog = new System.Windows.Forms.FontDialog();
             this.fastColoredTextBox1 = new FastColoredTextBoxNS.FastColoredTextBox();
-            this.mRunCSharp = new System.Windows.Forms.ToolStripMenuItem();
-            this.mRunHTML = new System.Windows.Forms.ToolStripMenuItem();
-            this.mRunPHP = new System.Windows.Forms.ToolStripMenuItem();
             this.autocompleteMenu = new AutocompleteMenuNS.AutocompleteMenu();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -100,7 +100,7 @@
             // 
             // menuStrip
             // 
-            this.menuStrip.BackColor = System.Drawing.Color.Aqua;
+            this.menuStrip.BackColor = System.Drawing.Color.LightSkyBlue;
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mFile,
             this.mEdit,
@@ -315,14 +315,14 @@
             // 
             this.mFormatTransfer.CheckOnClick = true;
             this.mFormatTransfer.Name = "mFormatTransfer";
-            this.mFormatTransfer.Size = new System.Drawing.Size(180, 22);
+            this.mFormatTransfer.Size = new System.Drawing.Size(129, 22);
             this.mFormatTransfer.Text = "Wordwrap";
             this.mFormatTransfer.CheckStateChanged += new System.EventHandler(this.mFormatTransfer_CheckStateChanged);
             // 
             // mFormatFont
             // 
             this.mFormatFont.Name = "mFormatFont";
-            this.mFormatFont.Size = new System.Drawing.Size(180, 22);
+            this.mFormatFont.Size = new System.Drawing.Size(129, 22);
             this.mFormatFont.Text = "Font";
             this.mFormatFont.Click += new System.EventHandler(this.mFormatFont_Click);
             // 
@@ -336,6 +336,28 @@
             this.mRun.Size = new System.Drawing.Size(40, 20);
             this.mRun.Text = "Run";
             this.mRun.Click += new System.EventHandler(this.mRun_Click);
+            // 
+            // mRunCSharp
+            // 
+            this.mRunCSharp.CheckOnClick = true;
+            this.mRunCSharp.Name = "mRunCSharp";
+            this.mRunCSharp.Size = new System.Drawing.Size(112, 22);
+            this.mRunCSharp.Text = "CSharp";
+            this.mRunCSharp.Click += new System.EventHandler(this.mRunCSharp_Click);
+            // 
+            // mRunHTML
+            // 
+            this.mRunHTML.Name = "mRunHTML";
+            this.mRunHTML.Size = new System.Drawing.Size(112, 22);
+            this.mRunHTML.Text = "HTML";
+            this.mRunHTML.Click += new System.EventHandler(this.mRunHTML_Click);
+            // 
+            // mRunPHP
+            // 
+            this.mRunPHP.Name = "mRunPHP";
+            this.mRunPHP.Size = new System.Drawing.Size(112, 22);
+            this.mRunPHP.Text = "PHP";
+            this.mRunPHP.Click += new System.EventHandler(this.mRunPHP_Click);
             // 
             // mView
             // 
@@ -351,7 +373,7 @@
             this.mViewStatusStrip.CheckOnClick = true;
             this.mViewStatusStrip.CheckState = System.Windows.Forms.CheckState.Checked;
             this.mViewStatusStrip.Name = "mViewStatusStrip";
-            this.mViewStatusStrip.Size = new System.Drawing.Size(180, 22);
+            this.mViewStatusStrip.Size = new System.Drawing.Size(133, 22);
             this.mViewStatusStrip.Text = "Status Strip";
             this.mViewStatusStrip.CheckStateChanged += new System.EventHandler(this.mViewStatusStrip_CheckStateChanged);
             // 
@@ -366,12 +388,13 @@
             // mHelpAboutProgram
             // 
             this.mHelpAboutProgram.Name = "mHelpAboutProgram";
-            this.mHelpAboutProgram.Size = new System.Drawing.Size(180, 22);
+            this.mHelpAboutProgram.Size = new System.Drawing.Size(156, 22);
             this.mHelpAboutProgram.Text = "About Program";
             this.mHelpAboutProgram.Click += new System.EventHandler(this.mHelpAboutProgram_Click);
             // 
             // statusStrip
             // 
+            this.statusStrip.BackColor = System.Drawing.Color.LightSkyBlue;
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusLab1,
             this.statusLinesCount,
@@ -437,7 +460,9 @@
             // 
             // toolStrip
             // 
+            this.toolStrip.BackColor = System.Drawing.Color.White;
             this.toolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStrip.ImageScalingSize = new System.Drawing.Size(18, 18);
             this.toolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newToolStripButton,
             this.открытьToolStripButton,
@@ -451,7 +476,7 @@
             this.справкаToolStripButton});
             this.toolStrip.Location = new System.Drawing.Point(0, 24);
             this.toolStrip.Name = "toolStrip";
-            this.toolStrip.Size = new System.Drawing.Size(744, 25);
+            this.toolStrip.Size = new System.Drawing.Size(744, 27);
             this.toolStrip.TabIndex = 2;
             this.toolStrip.Text = "toolStrip";
             // 
@@ -461,7 +486,7 @@
             this.newToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("newToolStripButton.Image")));
             this.newToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.newToolStripButton.Name = "newToolStripButton";
-            this.newToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.newToolStripButton.Size = new System.Drawing.Size(24, 24);
             this.newToolStripButton.Text = "&Создать";
             this.newToolStripButton.Click += new System.EventHandler(this.newToolStripButton_Click);
             // 
@@ -471,7 +496,7 @@
             this.открытьToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("открытьToolStripButton.Image")));
             this.открытьToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.открытьToolStripButton.Name = "открытьToolStripButton";
-            this.открытьToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.открытьToolStripButton.Size = new System.Drawing.Size(24, 24);
             this.открытьToolStripButton.Text = "&Открыть";
             // 
             // сохранитьToolStripButton
@@ -480,7 +505,7 @@
             this.сохранитьToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("сохранитьToolStripButton.Image")));
             this.сохранитьToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.сохранитьToolStripButton.Name = "сохранитьToolStripButton";
-            this.сохранитьToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.сохранитьToolStripButton.Size = new System.Drawing.Size(24, 24);
             this.сохранитьToolStripButton.Text = "&Сохранить";
             // 
             // печатьToolStripButton
@@ -489,13 +514,13 @@
             this.печатьToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("печатьToolStripButton.Image")));
             this.печатьToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.печатьToolStripButton.Name = "печатьToolStripButton";
-            this.печатьToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.печатьToolStripButton.Size = new System.Drawing.Size(24, 24);
             this.печатьToolStripButton.Text = "&Печать";
             // 
             // toolStripSeparator
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator.Size = new System.Drawing.Size(6, 27);
             // 
             // вырезатьToolStripButton
             // 
@@ -503,7 +528,7 @@
             this.вырезатьToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("вырезатьToolStripButton.Image")));
             this.вырезатьToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.вырезатьToolStripButton.Name = "вырезатьToolStripButton";
-            this.вырезатьToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.вырезатьToolStripButton.Size = new System.Drawing.Size(24, 24);
             this.вырезатьToolStripButton.Text = "В&ырезать";
             // 
             // копироватьToolStripButton
@@ -512,7 +537,7 @@
             this.копироватьToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("копироватьToolStripButton.Image")));
             this.копироватьToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.копироватьToolStripButton.Name = "копироватьToolStripButton";
-            this.копироватьToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.копироватьToolStripButton.Size = new System.Drawing.Size(24, 24);
             this.копироватьToolStripButton.Text = "&Копировать";
             // 
             // вставкаToolStripButton
@@ -521,13 +546,13 @@
             this.вставкаToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("вставкаToolStripButton.Image")));
             this.вставкаToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.вставкаToolStripButton.Name = "вставкаToolStripButton";
-            this.вставкаToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.вставкаToolStripButton.Size = new System.Drawing.Size(24, 24);
             this.вставкаToolStripButton.Text = "Вст&авка";
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 25);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 27);
             // 
             // справкаToolStripButton
             // 
@@ -535,7 +560,7 @@
             this.справкаToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("справкаToolStripButton.Image")));
             this.справкаToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.справкаToolStripButton.Name = "справкаToolStripButton";
-            this.справкаToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.справкаToolStripButton.Size = new System.Drawing.Size(24, 24);
             this.справкаToolStripButton.Text = "Спр&авка";
             // 
             // tabControl1
@@ -543,11 +568,11 @@
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.tabControl1.ItemSize = new System.Drawing.Size(120, 23);
-            this.tabControl1.Location = new System.Drawing.Point(0, 49);
+            this.tabControl1.Location = new System.Drawing.Point(0, 51);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(744, 427);
+            this.tabControl1.Size = new System.Drawing.Size(744, 425);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl1.TabIndex = 0;
             this.tabControl1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControl1_DrawItem);
@@ -582,40 +607,17 @@
             this.fastColoredTextBox1.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             this.fastColoredTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.fastColoredTextBox1.Enabled = false;
-            this.fastColoredTextBox1.Font = new System.Drawing.Font("Courier New", 9.75F);
             this.fastColoredTextBox1.IsReplaceMode = false;
             this.fastColoredTextBox1.LineNumberColor = System.Drawing.Color.DodgerBlue;
-            this.fastColoredTextBox1.Location = new System.Drawing.Point(0, 49);
+            this.fastColoredTextBox1.Location = new System.Drawing.Point(0, 51);
             this.fastColoredTextBox1.Name = "fastColoredTextBox1";
             this.fastColoredTextBox1.Paddings = new System.Windows.Forms.Padding(0);
             this.fastColoredTextBox1.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
             this.fastColoredTextBox1.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("fastColoredTextBox1.ServiceColors")));
-            this.fastColoredTextBox1.Size = new System.Drawing.Size(744, 427);
+            this.fastColoredTextBox1.Size = new System.Drawing.Size(744, 425);
             this.fastColoredTextBox1.TabIndex = 3;
             this.fastColoredTextBox1.Zoom = 100;
             this.fastColoredTextBox1.TextChanged += new System.EventHandler<FastColoredTextBoxNS.TextChangedEventArgs>(this.fastColoredTextBox1_TextChanged);
-            // 
-            // mRunCSharp
-            // 
-            this.mRunCSharp.CheckOnClick = true;
-            this.mRunCSharp.Name = "mRunCSharp";
-            this.mRunCSharp.Size = new System.Drawing.Size(180, 22);
-            this.mRunCSharp.Text = "CSharp";
-            this.mRunCSharp.Click += new System.EventHandler(this.mRunCSharp_Click);
-            // 
-            // mRunHTML
-            // 
-            this.mRunHTML.Name = "mRunHTML";
-            this.mRunHTML.Size = new System.Drawing.Size(180, 22);
-            this.mRunHTML.Text = "HTML";
-            this.mRunHTML.Click += new System.EventHandler(this.mRunHTML_Click);
-            // 
-            // mRunPHP
-            // 
-            this.mRunPHP.Name = "mRunPHP";
-            this.mRunPHP.Size = new System.Drawing.Size(180, 22);
-            this.mRunPHP.Text = "PHP";
-            this.mRunPHP.Click += new System.EventHandler(this.mRunPHP_Click);
             // 
             // autocompleteMenu
             // 

@@ -440,6 +440,11 @@ namespace MyNotepad__
         {
             fastColoredTextBox1.Visible = true;
             fastColoredTextBox1.Enabled = true;
+            labFile.Visible = true;
+            txtBoxFile.Visible = true;  
+            labFramework.Visible = true;
+            txtBoxFramework.Visible = true;
+            txtBoxStatus.Visible = true;    
         }
 
         private void mRunCSharp_Click(object sender, EventArgs e)
@@ -473,6 +478,17 @@ namespace MyNotepad__
             CSharpCodeProvider provider = new CSharpCodeProvider(new Dictionary<string, string>() { { "CompilerVersion ", txtBoxFramework.Text } });
             CompilerParameters parameters = new CompilerParameters(new string[] { "mscorlib.dll","System.Core.dll" }, txtBoxFile.Text, true );
             parameters.GenerateExecutable = true;
+            CompilerResults results = provider.CompileAssemblyFromSource(parameters, fastColoredTextBox1.Text);
+            if (results.Errors.HasErrors)
+            {
+                foreach (CompilerError error in results.Errors.Cast<CompilerError>())
+                    txtBoxStatus.Text += $"Line{error.Line}:{error.ErrorText}";
+            }
+            else
+            {
+                txtBoxStatus.Text = "--- Assembly completed ---";
+                Process.Start($"{Application.StartupPath}/{txtBoxFile}");
+            }
         }
        
 

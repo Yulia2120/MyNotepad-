@@ -94,9 +94,10 @@
             this.fastColoredTextBox1 = new FastColoredTextBoxNS.FastColoredTextBox();
             this.autocompleteMenu = new AutocompleteMenuNS.AutocompleteMenu();
             this.txtBoxFramework = new System.Windows.Forms.TextBox();
+            this.txtBoxFile = new System.Windows.Forms.TextBox();
+            this.txtBoxStatus = new System.Windows.Forms.TextBox();
             this.labFramework = new System.Windows.Forms.Label();
             this.labFile = new System.Windows.Forms.Label();
-            this.txtBoxFile = new System.Windows.Forms.TextBox();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
@@ -417,7 +418,7 @@
             this.statusCharSpaceCount,
             this.statusLab4,
             this.statusCharCount});
-            this.statusStrip.Location = new System.Drawing.Point(0, 529);
+            this.statusStrip.Location = new System.Drawing.Point(0, 539);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Size = new System.Drawing.Size(908, 22);
             this.statusStrip.TabIndex = 1;
@@ -585,7 +586,7 @@
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(908, 480);
+            this.tabControl1.Size = new System.Drawing.Size(908, 490);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl1.TabIndex = 0;
             this.tabControl1.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControl1_DrawItem);
@@ -628,7 +629,7 @@
             this.fastColoredTextBox1.Paddings = new System.Windows.Forms.Padding(0);
             this.fastColoredTextBox1.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
             this.fastColoredTextBox1.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("fastColoredTextBox1.ServiceColors")));
-            this.fastColoredTextBox1.Size = new System.Drawing.Size(908, 480);
+            this.fastColoredTextBox1.Size = new System.Drawing.Size(908, 490);
             this.fastColoredTextBox1.TabIndex = 3;
             this.fastColoredTextBox1.Zoom = 100;
             this.fastColoredTextBox1.TextChanged += new System.EventHandler<FastColoredTextBoxNS.TextChangedEventArgs>(this.fastColoredTextBox1_TextChanged);
@@ -644,44 +645,63 @@
             // txtBoxFramework
             // 
             this.autocompleteMenu.SetAutocompleteMenu(this.txtBoxFramework, null);
-            this.txtBoxFramework.Location = new System.Drawing.Point(721, 29);
+            this.txtBoxFramework.Location = new System.Drawing.Point(729, 28);
             this.txtBoxFramework.Name = "txtBoxFramework";
-            this.txtBoxFramework.Size = new System.Drawing.Size(180, 20);
+            this.txtBoxFramework.Size = new System.Drawing.Size(128, 20);
             this.txtBoxFramework.TabIndex = 5;
-            // 
-            // labFramework
-            // 
-            this.labFramework.AutoSize = true;
-            this.labFramework.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labFramework.Location = new System.Drawing.Point(627, 31);
-            this.labFramework.Name = "labFramework";
-            this.labFramework.Size = new System.Drawing.Size(66, 15);
-            this.labFramework.TabIndex = 4;
-            this.labFramework.Text = "Framework";
-            // 
-            // labFile
-            // 
-            this.labFile.AutoSize = true;
-            this.labFile.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labFile.Location = new System.Drawing.Point(343, 29);
-            this.labFile.Name = "labFile";
-            this.labFile.Size = new System.Drawing.Size(25, 15);
-            this.labFile.TabIndex = 6;
-            this.labFile.Text = "File";
+            this.txtBoxFramework.Visible = false;
             // 
             // txtBoxFile
             // 
             this.autocompleteMenu.SetAutocompleteMenu(this.txtBoxFile, null);
             this.txtBoxFile.Location = new System.Drawing.Point(405, 28);
             this.txtBoxFile.Name = "txtBoxFile";
-            this.txtBoxFile.Size = new System.Drawing.Size(180, 20);
+            this.txtBoxFile.Size = new System.Drawing.Size(159, 20);
             this.txtBoxFile.TabIndex = 7;
+            this.txtBoxFile.Visible = false;
+            // 
+            // txtBoxStatus
+            // 
+            this.txtBoxStatus.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.autocompleteMenu.SetAutocompleteMenu(this.txtBoxStatus, null);
+            this.txtBoxStatus.Location = new System.Drawing.Point(21, 452);
+            this.txtBoxStatus.Multiline = true;
+            this.txtBoxStatus.Name = "txtBoxStatus";
+            this.txtBoxStatus.Size = new System.Drawing.Size(886, 87);
+            this.txtBoxStatus.TabIndex = 8;
+            this.txtBoxStatus.Visible = false;
+            // 
+            // labFramework
+            // 
+            this.labFramework.AutoSize = true;
+            this.labFramework.BackColor = System.Drawing.Color.White;
+            this.labFramework.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labFramework.Location = new System.Drawing.Point(627, 31);
+            this.labFramework.Name = "labFramework";
+            this.labFramework.Size = new System.Drawing.Size(66, 15);
+            this.labFramework.TabIndex = 4;
+            this.labFramework.Text = "Framework";
+            this.labFramework.Visible = false;
+            // 
+            // labFile
+            // 
+            this.labFile.AutoSize = true;
+            this.labFile.BackColor = System.Drawing.Color.White;
+            this.labFile.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labFile.Location = new System.Drawing.Point(314, 30);
+            this.labFile.Name = "labFile";
+            this.labFile.Size = new System.Drawing.Size(64, 15);
+            this.labFile.TabIndex = 6;
+            this.labFile.Text = "Output file";
+            this.labFile.Visible = false;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(908, 551);
+            this.ClientSize = new System.Drawing.Size(908, 561);
+            this.Controls.Add(this.txtBoxStatus);
             this.Controls.Add(this.txtBoxFile);
             this.Controls.Add(this.labFile);
             this.Controls.Add(this.txtBoxFramework);
@@ -780,6 +800,7 @@
         private System.Windows.Forms.TextBox txtBoxFramework;
         private System.Windows.Forms.Label labFile;
         private System.Windows.Forms.TextBox txtBoxFile;
+        private System.Windows.Forms.TextBox txtBoxStatus;
     }
 }
 
